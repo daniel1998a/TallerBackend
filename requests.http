@@ -1,0 +1,63 @@
+GET  http://localhost:9000/perros/buscar/1 HTTP/1.1
+
+###
+GET  http://localhost:9000/perros/buscar HTTP/1.1
+
+###
+POST http://localhost:9000/perros/crear HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "lucas",
+    "edad": 8,
+    "raza": "pug"
+}
+
+
+
+###
+
+PUT http://localhost:9000/perros/actualizar/3 HTTP/1.1
+Content-Type: application/json
+
+{
+   "nombre":"meko",
+    "edad":10,
+    "raza":"row"
+}
+
+
+###
+DELETE http://localhost:9000/perros/eliminar/2 HTTP/1.1
+
+
+////////////////////////////////// gatos //////////////////////////////////
+
+###
+GET  http://localhost:9000/gatos/buscar/1 HTTP/1.1
+
+###
+GET  http://localhost:9000/gatos/buscar HTTP/1.1
+
+###
+POST http://localhost:9000/gatos/crear HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "michi",
+    "edad": 8,
+    "raza_gato": "persian"
+}
+
+###
+PUT http://localhost:9000/gatos/actualizar/2 HTTP/1.1
+Content-Type: application/json
+
+{
+   "nombre":"laku",
+   "edad":10,
+   "raza_gato":"lok"
+}
+
+###
+DELETE http://localhost:9000/gatos/eliminar/1 HTTP/1.1
