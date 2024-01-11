@@ -8,12 +8,14 @@ POST http://localhost:9000/perros/crear HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "lucas",
+    "nombre": "zoco",
     "edad": 8,
-    "raza": "pug"
+    "raza": "pug",
+    //"url":
+    "descrip_cor": "son perro normalmente de estatura baja",
+    "descrip_larg": "son perros amigables"
+
 }
-
-
 
 ###
 
@@ -61,3 +63,13 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:9000/gatos/eliminar/1 HTTP/1.1
+
+###
+POST http://localhost:9000/adopcion/crear HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 2,
+    "nombre": "juan",
+    "correo": "juan@gmail.com"
+}

@@ -2,9 +2,11 @@ import  express from "express";
 import { routerPerros } from "../rutas/perrosRouter.js";
 import { db } from "../database/conexion.js";
 import { routerGatos } from "../rutas/gatosRouter.js";
+import cors from "cors";
 
 const app = express();
 app.use(express.json())
+app.use(cors());
 
 db.authenticate().then(()=>{
     console.log(`Base de Datos conectada de manera exitosa`);
@@ -20,6 +22,8 @@ app.get("/",(req,res)=>{
 app.use("/perros",routerPerros);
 
 app.use("/gatos",routerGatos);
+
+
 
 
 const PORT =9000;

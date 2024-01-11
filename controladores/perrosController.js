@@ -11,15 +11,21 @@ const crear = (req,res)=>{
     const dataset={
         nombre: req.body.nombre,
         edad: req.body.edad,
-        raza: req.body.raza
+        raza: req.body.raza,
+        url: req.body.url,
+        descrip_cor: req.body.descrip_cor,
+        descrip_larg: req.body.descrip_larg
+
     };
 
     perros.create(dataset).then((resultado)=>{
         res.status(200).json({
+            tipo:"success",
             mensaje:"Registro del Perro creado Exitosamente"
         })
     }).catch((err)=>{
         res.status(500).json({
+            tipo:"error",
            mensaje: `Error al crear el registro del Perro ::: ${err}`
         })       
     })
@@ -65,14 +71,18 @@ const actualizar =(req,res)=>{
         const nombre= req.body.nombre;
         const edad=req.body.edad;
         const raza=req.body.raza;
-        perros.update({nombre,edad,raza},{where:{id}})
+        const descrip_cor=req.body.descrip_cor;
+        const descrip_larg=req.body.descrip_larg;
+        perros.update({nombre,edad,raza,descrip_cor,descrip_larg},{where:{id}})
         .then((resultado)=>{
             res.status(200).json({
+                tipo:"success",
                 mensaje: `Registro Actualizado del Perro`
             });
         })
         .catch((err)=>{
             res.status(500).json({
+                tipo:"error",
                 mensaje:  `error a actualizar registro del perro::: ${err}`
             });
         })    
@@ -83,6 +93,7 @@ const eliminar=(req,res)=>{
     const id= req.params.id;
     if(id == null){
         res.status(203).json({
+            tipo:"success",
             mensaje: `El id no puede estar vacio`
         });
         return;
@@ -90,6 +101,7 @@ const eliminar=(req,res)=>{
     perros.destroy({where:{id}})
     .then((resultado)=>{
         res.status(200).json({
+            tipo:"error",
             mensaje: `Registro del Perro eliminado`
         });
     })

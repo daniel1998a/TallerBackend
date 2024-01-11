@@ -20,7 +20,19 @@ const perros = db.define("perros",{
     raza:{
         type: Sequelize.STRING,
         allowNull: true
-    }
+    },
+    url:{
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    descrip_cor:{
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    descrip_larg:{
+        type: Sequelize.STRING,
+        allowNull: true
+    },
 
     
 });
